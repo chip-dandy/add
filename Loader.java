@@ -1,3 +1,8 @@
+//
+//
+//   ¯\_(ツ)_/¯
+
+// исправить немедленно)))))) и тд!!!!!
 import java.util.Scanner;
 
 public class Loader {
@@ -34,7 +39,7 @@ public class Loader {
                             a[i] = Integer.valueOf(textArray[i]);
                         }
                         System.out.println(a[0]);
-                        list.addToListIndex(a[0], text.substring(4));
+                        list.addToListIndex(a[0], text.substring(4)); // исправить немедленно)))))) и тд!!!!!
                     }
                     if (t2.equals("EDIT")){
                         System.out.println("edit");
