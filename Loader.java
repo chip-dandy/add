@@ -1,8 +1,8 @@
-//
-//
+
+
 //   ¯\_(ツ)_/¯
 
-// исправить немедленно)))))) и тд!!!!!
+
 import java.util.Scanner;
 
 public class Loader {
@@ -15,16 +15,33 @@ public class Loader {
         for(;;){
             System.out.println("Введите команду...");
             text = scanner.nextLine();
-            // реализация простой ввод и вывод
             if(text.length() > 4){
                 if(text.toUpperCase().matches("ADD [^0-9]+") && text.toUpperCase().matches("ADD .+?")){
-                    list.addToList(text.substring(4));
+                    list.addToDoList(text.substring(4));
+                }
+                if(text.toUpperCase().matches("(ADD|EDIT|DELL) \\d+ .+?")){
+                    if(text.toUpperCase().substring(0, 4).equals("ADD ")){
+
+                        if(list.getSize() >  getArray(text)){
+                            list.addToListIndex(getArray(text),text);
+                        }else {
+                            list.addToListIndex(0,"Its a  no work");
+                        }
+                    }
                 }
             }else if(text.length() == 4){
                 list.getToDoList();
             }
-
-
         }
     }
+
+    private static int getArray(String text) {
+        String[] array = (text.replaceAll("\\D+", " ").trim()).split(" ");
+        int[] a = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            a[i] = Integer.valueOf(array[i]);
+        }
+        return a[0];
+    }
+
 }
